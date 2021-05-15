@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const fatal = require('../utils/fatalError');
 
 module.exports = {
