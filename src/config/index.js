@@ -2,6 +2,8 @@ require('dotenv').config();
 
 const fatal = require('../utils/fatalError');
 
+console.log(`Private key: ${process.env.FIREBASE_PRIVATE_KEY}`);
+
 module.exports = {
   server: {
     PORT: Number(process.env.PORT) || 3000,
