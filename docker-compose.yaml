@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  db:
+    container_name: db
+    image: postgres:13.1-alpine
+    env_file: 
+      - .env
+    ports:
+      - $EXTERNAL_POSTGRES_PORT:$POSTGRES_PORT
+    volumes:
+      - ./.data:/var/lib/postgresql/data
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 18080:8080
+
+  node-app:
+    image: node-app
+    container_name: node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    depends_on:
+      - db
+    ports:
+      - $PORT:$PORT
+    restart: always

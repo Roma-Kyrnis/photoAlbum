@@ -1,0 +1,44 @@
+{
+  "name": "share-photo",
+  "version": "1.0.0",
+  "description": "online photo album",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "eslint": "./node_modules/.bin/eslint ./src/",
+    "debug": "npx node-dev@latest --inspect=0.0.0.0:9229 ./src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex:migrate:make": "./node_modules/.bin/knex --knexfile=./src/db/knexfile.js migrate:make",
+    "knex:migrate:latest": "./node_modules/.bin/knex --knexfile=./src/db/knexfile.js migrate:latest",
+    "knex:migrate:up": "./node_modules/.bin/knex --knexfile=./src/db/knexfile.js migrate:up",
+    "knex:migrate:down": "./node_modules/.bin/knex --knexfile=./src/db/knexfile.js migrate:down"
+  },
+  "engines": {
+    "node": ">=14.15.0"
+  },
+  "author": "Kyrnis Roman",
+  "license": "ISC",
+  "dependencies": {
+    "async-busboy": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "firebase-admin": "^9.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.17",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "^6.0.0",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^7.0.0",
+    "pg": "^8.5.1",
+    "pino": "^6.11.1",
+    "pino-pretty": "^4.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
