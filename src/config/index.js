@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const fatal = require('../utils/fatalError');
 
-console.log(`Private key: ${process.env.FIREBASE_PRIVATE_KEY}`);
+process.stdout.write(`Private key: ${process.env.FIREBASE_PRIVATE_KEY}`);
 
 module.exports = {
   server: {
@@ -57,7 +57,7 @@ module.exports = {
       type: process.env.FIREBASE_TYPE || fatal('No FIREBASE_TYPE'),
       project_id: process.env.FIREBASE_PROJECT_ID || fatal('No FIREBASE_PROJECT_ID'),
       private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID || fatal('No FIREBASE_PRIVATE_KEY_ID'),
-      private_key: JSON.parse(process.env.FIREBASE_PRIVATE_KEY || fatal('No FIREBASE_PRIVATE_KEY')),
+      private_key: process.env.FIREBASE_PRIVATE_KEY || fatal('No FIREBASE_PRIVATE_KEY'),
       client_email: process.env.FIREBASE_CLIENT_EMAIL || fatal('No FIREBASE_CLIENT_EMAIL'),
       client_id: process.env.FIREBASE_CLIENT_ID || fatal('No FIREBASE_CLIENT_ID'),
       auth_uri: process.env.FIREBASE_AUTH_URI || fatal('No FIREBASE_AUTH_URI'),
